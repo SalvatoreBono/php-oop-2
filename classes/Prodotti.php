@@ -2,6 +2,7 @@
 class Prodotti
 {
     protected $title;
+    protected $category;
     protected $brand;
     protected $price;
 

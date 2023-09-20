@@ -6,13 +6,19 @@ require_once __DIR__ . "/classes/Cuccia.php";
 require_once __DIR__ . "/classes/Cani.php";
 require_once __DIR__ . "/classes/Gatti.php";
 
+$Gatti1 = new Gatti();
+$Cani1 = new Cani();
 
 $Cibo1 = new Cibo(
     _brand: "Gourmet",
     _title: "Gourmet Gold Mousse",
     _age: "Aldulti",
     _price: "13,69€",
+    _category: $Gatti1->img,
+    _img: "https://shop-cdn-m.mediazs.com/bilder/gourmet/gold/mousse/x/g/alimento/umido/per/gatti/4/400/cans_24_1000x1000_4.jpg",
+
 );
+
 $Cibo1->proteinSource = "Salmone";
 $Cibo1->pathologies = "Obesità e gestione del peso";
 $Cibo1->typology = "Monoproteico";
@@ -23,6 +29,8 @@ $Cibo2 = new Cibo(
     _title: "Alleva Holistic Chicken & Duck",
     _age: "Aldulti, Anziani",
     _price: "26,50€",
+    _category: $Cani1->img,
+    _img: "https://animalsplanet.it/wp-content/uploads/2023/02/cibo-per-gattini-alleva-equilibrium-kitten-chicken-gusto-pollo-15kg-300x300.jpg",
 );
 $Cibo2->proteinSource = "Anatra, Pollo";
 
@@ -31,9 +39,14 @@ $Cibo3 = new Cibo(
     _title: "Vet Line Salute",
     _age: "Aldulti",
     _price: "32,00€",
+    _category: $Cani1->img,
+    _img: "https://animalsplanet.it/wp-content/uploads/2021/04/snack-per-cani-vet-line-gusto-cervo-80gr-300x300.jpg",
+
+
 );
 $Cibo3->proteinSource = "Maiale, Prosciutto";
 $Cibo3->pathologies = "Obesità e gestione del peso";
+
 
 $Gioco1 = new Gioco(
     _brand: "Squeaky",
@@ -41,7 +54,10 @@ $Gioco1 = new Gioco(
     _material: "TPR (gomma termoplastica)",
     _color: "Verde",
     _price: "6,69€",
+    _img: "https://shop-cdn-m.mediazs.com/bilder/squeaky/ball/palla/gioco/in/tpr/per/cani/8/400/331033_squeaky_ball_02_08_2013_dsc0208_8.jpg",
+    _category: $Cani1->img,
 );
+
 
 $Gioco2 = new Gioco(
     _brand: "Trixie",
@@ -49,7 +65,12 @@ $Gioco2 = new Gioco(
     _material: "Robusto",
     _color: "Grigio",
     _price: "1,19€",
+    _img: "https://shop-cdn-m.mediazs.com/bilder/trixie/corda/gioco/per/cani/8/400/7992_pla_trixie_spieltau_grau_hs8_8.jpg",
+    _category: $Cani1->img,
 );
+
+
+
 
 $Gioco3 = new Gioco(
     _brand: "Trixie",
@@ -57,78 +78,30 @@ $Gioco3 = new Gioco(
     _material: "Robusto",
     _color: "Grigio",
     _price: "5,90€",
-);
-$Cuccia1 = new Cuccia(
-    _brand: "Lionto",
-    _title: "Lionto Letto",
-    _material: "Fibra di poliestere",
-    _color: "Grigio/Nero",
-    _price: "17,95€",
-    _productDimensions: "60x48 cm"
-);
-
-$Cuccia2 = new Cuccia(
-    _brand: "beeco",
-    _title: "beeco STORE Letto",
-    _material: "Silicone",
-    _color: "Rosso",
-    _price: "59,95€",
-    _productDimensions: "100L x 75l x 20Sp cm"
-);
-
-$Cuccia3 = new Cuccia(
-    _brand: "DONWEI",
-    _title: "DONWEI Cuccia",
-    _material: "Gomma, Cotone",
-    _color: "Rosa",
-    _price: "59,95€",
-    _productDimensions: "50L x 50l x 18Sp cm"
-);
-
-$Cani1 = new Cani(
-    _race: "Cane da pastore tedesco",
-    _color: "Nero, Bianco, Nero Focato, Nero e argento, Rosso e nero, Punte Nere, Grigio",
-    _img: "https://media-assets.wired.it/photos/615db921d8b66b13086d090c/1:1/w_590,h_590,c_limit/wired_placeholder_dummy.png",
-    _longevity: "9–13 anni",
+    _img: "https://arcaplanet.vtexassets.com/arquivos/ids/218063/https---www.arcaplanet.it-media-catalog-product--t-r-trixie-cane-in-tessuto-peluche-tric78.jpg?v=1781138396",
+    _category: $Gatti1->img,
 );
 
 
-$Cani2 = new Cani(
-    _race: "Golden retriever",
-    _color: " Dorato scuro, Oro chiaro, Crema, Oro",
-    _img: "https://media-assets.wired.it/photos/615db921d8b66b13086d090c/1:1/w_590,h_590,c_limit/wired_placeholder_dummy.png",
-    _longevity: "10–12 anni",
-);
+
+$Cuccia1 = new Cuccia("DONWEI Cuccia", "https://m.media-amazon.com/images/I/71CfPzNFFjL.__AC_SX300_SY300_QL70_ML2_.jpg", "59,95€", $Cani1->img);
+$Cuccia1->brand = "DONWEI";
+$Cuccia1->material = "Gomma, Cotone";
+$Cuccia1->color = "Rosa";
+$Cuccia1->productDimensions = "50L x 50l x 18Sp cm";
+
+$Cuccia2 = new Cuccia("beeco STORE Letto", "https://m.media-amazon.com/images/I/71NAd+Z7KmL._AC_SX679_.jpg", "59,95€", $Gatti1->img);
+$Cuccia2->brand = "beeco";
+$Cuccia2->material = "Silicone";
+$Cuccia2->color = "Rosso";
+$Cuccia2->productDimensions = "100L x 75l x 20Sp cm";
 
 
-$Cani3 = new Cani(
-    _race: "Siberian husky",
-    _color: "Bianco, Nero, Bianco e grigio, Sabbia e bianco, Rosso-bianco, Nero Focato, Grigio argento, Bianco e Nero, Grigio",
-    _img: "https://media-assets.wired.it/photos/615db921d8b66b13086d090c/1:1/w_590,h_590,c_limit/wired_placeholder_dummy.png",
-    _longevity: "12–15 anni",
-);
-
-$Gatti1 = new Gatti(
-    _race: "Siamese",
-    _color: "bianco-crema",
-    _img: "https://www.my-personaltrainer.it/2023/07/26/gatti-falsi-miti_900x760.jpeg",
-    _longevity: "20 anni",
-);
-
-$Gatti2 = new Gatti(
-    _race: "Maine Coon",
-    _color: "il nero e il rosso",
-    _img: "https://www.my-personaltrainer.it/2023/07/26/gatti-falsi-miti_900x760.jpeg",
-    _longevity: "12-15 anni",
-);
-
-
-$Gatti3 = new Gatti(
-    _race: "Ragdoll",
-    _color: "seal, blue, chocolate, lilac, red e cream",
-    _img: "https://www.my-personaltrainer.it/2023/07/26/gatti-falsi-miti_900x760.jpeg",
-    _longevity: "12 e i 17 anni.",
-);
+$Cuccia3 = new Cuccia("Lionto Letto", "https://m.media-amazon.com/images/I/61Snzl36e5L._AC_SX679_.jpg", "17,95€", $Gatti1->img);
+$Cuccia3->brand = "Lionto";
+$Cuccia3->material = "Fibra di poliestere";
+$Cuccia3->color = "Grigio/Nero";
+$Cuccia3->productDimensions = "60x48 cm";
 
 
 ?>
