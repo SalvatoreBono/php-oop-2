@@ -132,7 +132,7 @@ array_push($productList, $Cuccia1, $Cuccia2, $Cuccia3, $Gioco1, $Gioco2, $Gioco3
                 <?php foreach ($productList as $singleProduct) {
                 ?>
                     <div class="col">
-                        <div class="card text-center">
+                        <div class="card text-center" style="height: 100%;">
                             <img src="<?php echo $singleProduct->getImg() ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h6 class="card-title"><?php echo $singleProduct->GetBrand() ?></h6>
