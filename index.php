@@ -19,9 +19,9 @@ $Cibo1 = new Cibo(
 
 );
 
-$Cibo1->proteinSource = "Salmone";
-$Cibo1->pathologies = "Obesità e gestione del peso";
-$Cibo1->typology = "Monoproteico";
+$Cibo1->setProteinSource("Salmone");
+$Cibo1->setPathologies("Obesità e gestione del peso");
+$Cibo1->setTypology("Monoproteico");
 
 
 $Cibo2 = new Cibo(
@@ -32,7 +32,7 @@ $Cibo2 = new Cibo(
     _category: $Cani1->img,
     _img: "https://animalsplanet.it/wp-content/uploads/2023/02/cibo-per-gattini-alleva-equilibrium-kitten-chicken-gusto-pollo-15kg-300x300.jpg",
 );
-$Cibo2->proteinSource = "Anatra, Pollo";
+$Cibo2->setProteinSource("Anatra, Pollo");
 
 $Cibo3 = new Cibo(
     _brand: "Vet Line",
@@ -44,8 +44,8 @@ $Cibo3 = new Cibo(
 
 
 );
-$Cibo3->proteinSource = "Maiale, Prosciutto";
-$Cibo3->pathologies = "Obesità e gestione del peso";
+$Cibo3->setProteinSource("Maiale, Prosciutto");
+$Cibo3->setPathologies("Obesità e gestione del peso");
 
 
 $Gioco1 = new Gioco(
@@ -84,25 +84,30 @@ $Gioco3 = new Gioco(
 
 
 
+
 $Cuccia1 = new Cuccia("DONWEI Cuccia", "https://m.media-amazon.com/images/I/71CfPzNFFjL.__AC_SX300_SY300_QL70_ML2_.jpg", "59,95€", $Cani1->img);
-$Cuccia1->brand = "DONWEI";
-$Cuccia1->material = "Gomma, Cotone";
-$Cuccia1->color = "Rosa";
-$Cuccia1->productDimensions = "50L x 50l x 18Sp cm";
+$Cuccia1->setBrand("DONWEI");
+$Cuccia1->setMaterial("Gomma, Cotone");
+$Cuccia1->setColor("Rosa");
+$Cuccia1->setProductDimensions("50L x 50l x 18Sp cm");
+
+
 
 $Cuccia2 = new Cuccia("beeco STORE Letto", "https://m.media-amazon.com/images/I/71NAd+Z7KmL._AC_SX679_.jpg", "59,95€", $Gatti1->img);
-$Cuccia2->brand = "beeco";
-$Cuccia2->material = "Silicone";
-$Cuccia2->color = "Rosso";
-$Cuccia2->productDimensions = "100L x 75l x 20Sp cm";
+$Cuccia2->setBrand("beeco");
+$Cuccia2->setMaterial("Silicone");
+$Cuccia2->setColor("Rosso");
+$Cuccia2->setProductDimensions("100L x 75l x 20Sp cm");
 
 
 $Cuccia3 = new Cuccia("Lionto Letto", "https://m.media-amazon.com/images/I/61Snzl36e5L._AC_SX679_.jpg", "17,95€", $Gatti1->img);
-$Cuccia3->brand = "Lionto";
-$Cuccia3->material = "Fibra di poliestere";
-$Cuccia3->color = "Grigio/Nero";
-$Cuccia3->productDimensions = "60x48 cm";
+$Cuccia3->setBrand("Lionto");
+$Cuccia3->setMaterial("Fibra di poliestere");
+$Cuccia3->setColor("Grigio/Nero");
+$Cuccia3->setProductDimensions("60x48 cm");
 
+$productList = [];
+array_push($productList, $Cuccia1, $Cuccia2, $Cuccia3, $Gioco1, $Gioco2, $Gioco3, $Cibo1, $Cibo2, $Cibo3);
 
 ?>
 <!DOCTYPE html>
@@ -121,7 +126,31 @@ $Cuccia3->productDimensions = "60x48 cm";
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <div class="container pt-5 pb-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <?php foreach ($productList as $singleProduct) {
+                ?>
+                    <div class="col">
+                        <div class="card text-center">
+                            <img src="<?php echo $singleProduct->getImg() ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title"><?php echo $singleProduct->GetBrand() ?></h6>
+                                <h5 class="card-title"><?php echo $singleProduct->getTitle() ?></h5>
+                                <div class="card-text"><?php echo $singleProduct->getPrice() ?></div>
+                                <img style="width: 50px; height: 50px;" src="<?php echo $singleProduct->getCategory() ?>" alt="">
+                            </div>
+                        </div>
+                    </div>
+                <?php
+
+
+                }
+
+                ?>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
