@@ -10,12 +10,12 @@ class Gioco extends Prodotti
     protected $img;
 
     //passo come argomenti sia quelli presenti in questo file che gli argomenti contenuti nel file Prodotti
-    public function __construct($_brand, $_title, $_price, $_img, $_material, $_color, $_category, $_location)
+    public function __construct($_brand, string  $_title, $_price, $_img, $_material, $_color, $_category, $_location)
     {
         $this->brand = $_brand;
         $this->material = $_material;
         $this->color = $_color;
-        $this->title = $_title;
+        $this->setTitle($_title);
         $this->price = $_price;
         $this->img = $_img;
         $this->category = $_category;

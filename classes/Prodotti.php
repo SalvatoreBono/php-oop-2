@@ -9,9 +9,9 @@ class Prodotti
     protected $price;
 
     // rendo obbligatorie il title e il price
-    public function __construct($_title, $_brand, $_price)
+    public function __construct(string $_title,  string $_brand, string  $_price)
     {
-        $this->title = $_title;
+        $this->setTitle($_title);
         $this->brand = $_brand;
         $this->price = $_price;
     }
@@ -31,9 +31,16 @@ class Prodotti
      */
     public function setTitle($title)
     {
-        $this->title = $title;
-
-        return $this;
+        try {
+            if (is_numeric($title)) {
+                throw new Exception("Il titolo deve essere una stringa");
+            } else {
+                $this->title = $title;
+                return $this;
+            }
+        } catch (Exception $e) {
+            echo "<div class='alert alert-danger text-center display-5'>" . $e->getMessage() . "</div>";
+        }
     }
 
     /**

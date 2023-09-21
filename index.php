@@ -76,10 +76,9 @@ $Gioco2 = new Gioco(
 
 
 
-
 $Gioco3 = new Gioco(
     _brand: "Trixie",
-    _title: "Stoffa Peluche",
+    _title: 20,
     _material: "Robusto",
     _color: "Grigio",
     _price: "5,90€",
@@ -88,6 +87,8 @@ $Gioco3 = new Gioco(
     _location: "Slovenia",
 
 );
+
+
 
 
 
