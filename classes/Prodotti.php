@@ -1,13 +1,15 @@
 <?php
+require_once __DIR__ . "../../traits/Localita.php";
 class Prodotti
 {
+    use Localita;
     protected $title;
     protected $category;
     protected $brand;
     protected $price;
 
     // rendo obbligatorie il title e il price
-    public function __construct($_title, $_brand, $_price,)
+    public function __construct($_title, $_brand, $_price)
     {
         $this->title = $_title;
         $this->brand = $_brand;

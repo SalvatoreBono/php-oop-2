@@ -12,12 +12,13 @@ class Cuccia extends Prodotti
     protected $productDimensions;
 
     //passo come argomenti sia quelli presenti in questo file che gli argomenti contenuti nel file Prodotti
-    public function __construct(string $_title, string $_img, $_price, string $_category)
+    public function __construct(string $_title, string $_img, $_price, string $_category, $_location)
     {
         $this->title = $_title;
         $this->img = $_img;
         $this->price = $_price;
         $this->category = $_category;
+        $this->location = $_location;
     }
 
     /**

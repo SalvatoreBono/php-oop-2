@@ -12,7 +12,7 @@ class Cibo extends Prodotti
     protected $typology;
 
     //passo come argomenti sia quelli presenti in questo file che gli argomenti contenuti nel file Prodotti
-    public function __construct($_brand, $_title, $_age, $_price, $_category, $_img)
+    public function __construct($_brand, $_title, $_age, $_price, $_category, $_img, $_location)
     {
         $this->age = $_age;
         $this->title = $_title;
@@ -20,6 +20,7 @@ class Cibo extends Prodotti
         $this->price = $_price;
         $this->category = $_category;
         $this->img = $_img;
+        $this->location = $_location;
 
         //faccio il parent così che non sovrascrivo il construct del file Prodotti e passo sempre gli argomenti del file Prodotti
     }

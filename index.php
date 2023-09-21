@@ -16,6 +16,7 @@ $Cibo1 = new Cibo(
     _price: "13,69€",
     _category: $Gatti1->img,
     _img: "https://shop-cdn-m.mediazs.com/bilder/gourmet/gold/mousse/x/g/alimento/umido/per/gatti/4/400/cans_24_1000x1000_4.jpg",
+    _location: "Stati Uniti",
 
 );
 
@@ -31,6 +32,7 @@ $Cibo2 = new Cibo(
     _price: "26,50€",
     _category: $Cani1->img,
     _img: "https://animalsplanet.it/wp-content/uploads/2023/02/cibo-per-gattini-alleva-equilibrium-kitten-chicken-gusto-pollo-15kg-300x300.jpg",
+    _location: "Italia",
 );
 $Cibo2->setProteinSource("Anatra, Pollo");
 
@@ -41,8 +43,7 @@ $Cibo3 = new Cibo(
     _price: "32,00€",
     _category: $Cani1->img,
     _img: "https://animalsplanet.it/wp-content/uploads/2021/04/snack-per-cani-vet-line-gusto-cervo-80gr-300x300.jpg",
-
-
+    _location: "Germania",
 );
 $Cibo3->setProteinSource("Maiale, Prosciutto");
 $Cibo3->setPathologies("Obesità e gestione del peso");
@@ -56,6 +57,8 @@ $Gioco1 = new Gioco(
     _price: "6,69€",
     _img: "https://shop-cdn-m.mediazs.com/bilder/squeaky/ball/palla/gioco/in/tpr/per/cani/8/400/331033_squeaky_ball_02_08_2013_dsc0208_8.jpg",
     _category: $Cani1->img,
+    _location: "Congo",
+
 );
 
 
@@ -67,6 +70,8 @@ $Gioco2 = new Gioco(
     _price: "1,19€",
     _img: "https://shop-cdn-m.mediazs.com/bilder/trixie/corda/gioco/per/cani/8/400/7992_pla_trixie_spieltau_grau_hs8_8.jpg",
     _category: $Cani1->img,
+    _location: "Spagna",
+
 );
 
 
@@ -80,12 +85,14 @@ $Gioco3 = new Gioco(
     _price: "5,90€",
     _img: "https://arcaplanet.vtexassets.com/arquivos/ids/218063/https---www.arcaplanet.it-media-catalog-product--t-r-trixie-cane-in-tessuto-peluche-tric78.jpg?v=1781138396",
     _category: $Gatti1->img,
+    _location: "Slovenia",
+
 );
 
 
 
 
-$Cuccia1 = new Cuccia("DONWEI Cuccia", "https://m.media-amazon.com/images/I/71CfPzNFFjL.__AC_SX300_SY300_QL70_ML2_.jpg", "59,95€", $Cani1->img);
+$Cuccia1 = new Cuccia("DONWEI Cuccia", "https://m.media-amazon.com/images/I/71CfPzNFFjL.__AC_SX300_SY300_QL70_ML2_.jpg", "59,95€", $Cani1->img, "Senegal");
 $Cuccia1->setBrand("DONWEI");
 $Cuccia1->setMaterial("Gomma, Cotone");
 $Cuccia1->setColor("Rosa");
@@ -93,14 +100,14 @@ $Cuccia1->setProductDimensions("50L x 50l x 18Sp cm");
 
 
 
-$Cuccia2 = new Cuccia("beeco STORE Letto", "https://m.media-amazon.com/images/I/71NAd+Z7KmL._AC_SX679_.jpg", "59,95€", $Gatti1->img);
+$Cuccia2 = new Cuccia("beeco STORE Letto", "https://m.media-amazon.com/images/I/71NAd+Z7KmL._AC_SX679_.jpg", "59,95€", $Gatti1->img, "Serbia");
 $Cuccia2->setBrand("beeco");
 $Cuccia2->setMaterial("Silicone");
 $Cuccia2->setColor("Rosso");
 $Cuccia2->setProductDimensions("100L x 75l x 20Sp cm");
 
 
-$Cuccia3 = new Cuccia("Lionto Letto", "https://m.media-amazon.com/images/I/61Snzl36e5L._AC_SX679_.jpg", "17,95€", $Gatti1->img);
+$Cuccia3 = new Cuccia("Lionto Letto", "https://m.media-amazon.com/images/I/61Snzl36e5L._AC_SX679_.jpg", "17,95€", $Gatti1->img, "Argentina");
 $Cuccia3->setBrand("Lionto");
 $Cuccia3->setMaterial("Fibra di poliestere");
 $Cuccia3->setColor("Grigio/Nero");
@@ -138,6 +145,7 @@ array_push($productList, $Cuccia1, $Cuccia2, $Cuccia3, $Gioco1, $Gioco2, $Gioco3
                                 <h6 class="card-title"><?php echo $singleProduct->GetBrand() ?></h6>
                                 <h5 class="card-title"><?php echo $singleProduct->getTitle() ?></h5>
                                 <div class="card-text"><?php echo $singleProduct->getPrice() ?></div>
+                                <div class="card-text"><?php echo $singleProduct->getLocation() ?></div>
                                 <img style="width: 50px; height: 50px;" src="<?php echo $singleProduct->getCategory() ?>" alt="">
                             </div>
                         </div>
